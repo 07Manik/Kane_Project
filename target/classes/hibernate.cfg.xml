@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+    <!-- Database connection properties -->
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/employee?createDatabaseIfNotExist=true</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">ROOT</property>
+
+    <!-- Hibernate dialect for PostgreSQL -->
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+    <!-- Enable Hibernate's automatic session context management -->
+    <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+
+    <!-- Show SQL statements in logs -->
+    <property name="hibernate.show_sql">true</property>
+
+    <!-- Auto-create/update database tables -->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+
+    <!-- Specify package(s) containing entity classes -->
+    <mapping class="org.example.myapp.entities.Employee"/>
+    <mapping class="org.example.myapp.entities.User"/>
+
+
+
+
+</session-factory>
+</hibernate-configuration>

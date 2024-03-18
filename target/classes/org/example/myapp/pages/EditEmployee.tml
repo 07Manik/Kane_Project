@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<head>
+    <title>Employee Details</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    h3 {
+        color: #333;
+    }
+    p {
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    a:hover {
+        background-color: #0056b3;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+</style>
+
+<body class="container">
+<div class="eg">
+    <t:companyinfo value="message"/>
+</div>
+
+<h3>${'Edit Details'}</h3>
+<br></br>
+
+<t:if test="employee">
+
+
+
+    <t:form t:id="editForm" >
+        <label for="name">Name:</label>
+        <t:textfield t:id="name" t:value="employee.name" />
+        <br/>
+
+        <label for="age">Age:</label>
+        <t:textfield t:id="age" t:value="employee.age" />
+        <br/>
+
+        <label for="address">Address:</label>
+        <t:textfield t:id="address" t:value="employee.address" />
+        <br/>
+        <label for="gender">Gender:</label>
+        <t:textfield t:id="gender" t:value="employee.gender" />
+        <br/>
+        <label for="birthdate">Birthdate:</label>
+        <t:datefield t:id="birthdate" t:value="employee.birthdate" />
+        <br/>
+        <label for="designation">Designation:</label>
+        <t:textfield t:id="designation" t:value="employee.designation" />
+        <br/>
+        <label for="image">Upload Image:</label>
+        <t:upload t:id="image" t:value="employee.image" />
+        <br/>
+
+        <input type="submit" value="Save"/>
+    </t:form>
+</t:if>
+
+
+</body>
+</html>

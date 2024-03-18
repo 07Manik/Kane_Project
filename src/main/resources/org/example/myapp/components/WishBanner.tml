@@ -1,0 +1,10 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<t:content>
+
+    <t:if test="employeeBirthday">
+        <div style="${color}">Happy bday, ${employee.name}</div>
+    </t:if>
+
+
+</t:content>
+</html>

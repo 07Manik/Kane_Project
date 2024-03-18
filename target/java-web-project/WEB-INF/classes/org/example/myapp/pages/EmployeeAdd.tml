@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+<title>Employee Add</title>
+<link rel="stylesheet" type="text/css" href="path/to/style.css"/>
+</head>
+<style>
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+h1 {
+    color: #333;
+    text-align: center;
+}
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+.validation-error {
+    color: #ff0000;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+
+#employeeFormZone {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+</style>
+
+<body>
+<div class="eg">
+    <t:companyinfo value="message"/>
+</div>
+
+
+<h1>Add Employee</h1>
+
+
+
+<t:form t:id="employeeForm" >
+    <label for="name">Name:</label>
+    <t:textfield t:id="name" t:value="name" t:validate="required"/>
+    <br/>
+
+    <label for="age">Age:</label>
+    <t:textfield t:id="age" t:value="age" t:validate="required, min=18, max=100"/>
+    <br/>
+
+    <label for="address">Address:</label>
+    <t:textfield t:id="address" t:value="address" t:validate="required"/>
+    <br/>
+    <label for="gender">Gender:</label>
+    <t:textfield t:id="gender" t:value="gender" t:validate="required"/>
+    <br/>
+    <label for="birthdate">Birthdate:</label>
+    <t:datefield t:id="birthdate" t:value="birthdate" t:validate="required"/>
+    <br/>
+    <label for="designation">Designation:</label>
+    <t:textfield t:id="designation" t:value="designation" t:validate="required"/>
+    <br/>
+    <label for="image">Upload Image:</label>
+    <t:upload t:id="image" t:value="image" t:validate="required"/>
+
+
+    <input type="submit" value="Save"/>
+</t:form>
+
+</body>
+</html>

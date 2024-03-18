@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xmlns:t="http:\\tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter" xmlns:j="tapestry-library:jquery">
+<!--<head>-->
+<!--        <title>Employee Details</title>-->
+<!--</head>-->
+<!--<style>-->
+<!--body {-->
+<!--font-family: Arial, sans-serif;-->
+<!--background-color: #f0f0f0;-->
+<!--margin: 0;-->
+<!--padding: 0;-->
+<!--}-->
+<!--.container {-->
+<!--width: 80%;-->
+<!--margin: 0 auto;-->
+<!--text-align: center;-->
+<!--}-->
+<!--h1 {-->
+<!--color: #333;-->
+<!--}-->
+<!--p {-->
+<!--color: #666;-->
+<!--margin-bottom: 20px;-->
+<!--}-->
+
+<!--a:hover {-->
+<!--background-color: #0056b3;-->
+<!--}-->
+
+<!--.link {-->
+<!--    color: blue;-->
+<!--    text-decoration: underline;-->
+<!--    cursor: pointer;-->
+<!--    margin-right: 10px;-->
+<!--}-->
+
+<!--.link:hover {-->
+<!--    text-decoration: none;-->
+<!--}-->
+
+<!--/* Style for close link */-->
+<!--.close-link {-->
+<!--    float: right;-->
+<!--    margin-top: 10px;-->
+<!--}-->
+
+<!--/* Style for modal */-->
+<!--.modal {-->
+<!--    display: none;-->
+<!--    position: fixed;-->
+<!--    z-index: 1000;-->
+<!--    left: 0;-->
+<!--    top: 0;-->
+<!--    width: 100%;-->
+<!--    height: 100%;-->
+<!--    overflow: auto;-->
+<!--    background-color: rgba(0, 0, 0, 0.4);-->
+<!--}-->
+
+<!--.modal-content {-->
+<!--    background-color: #fefefe;-->
+<!--    margin: 15% auto;-->
+<!--    padding: 20px;-->
+<!--    border: 1px solid #888;-->
+<!--    width: 80%;-->
+<!--}-->
+
+<!--.modal-header, .modal-footer {-->
+<!--    padding: 10px 15px;-->
+<!--    background-color: #f5f5f5;-->
+<!--    border-bottom: 1px solid #ddd;-->
+<!--}-->
+
+<!--.modal-body {-->
+<!--    padding: 10px;-->
+<!--}-->
+<!--.close-link {-->
+<!--    position: absolute; /* Position link absolutely */-->
+<!--    top: 10px; /* Distance from the top */-->
+<!--    right: 10px; /* Distance from the right */-->
+<!--}-->
+
+<!--.close:hover,-->
+<!--.close:focus {-->
+<!--    color: #000;-->
+<!--    text-decoration: none;-->
+<!--    cursor: pointer; /*-->
+<!--}-->
+
+<!--</style>-->
+
+<!--<body class="container">-->
+<!--<div class="eg">-->
+<!--        <t:companyinfo value="message"/>-->
+<!--</div>-->
+
+<!--<h3>${'View Details'}</h3>-->
+<!--<br></br>-->
+
+
+
+<!--<t:if test="employee">-->
+<!--        <div class="eg">-->
+<!--                <t:wishbanner employee="employee"/>-->
+<!--        </div>-->
+
+
+<!--        <div class="employee-details">-->
+
+<!--                <p>Name: ${employee.name}</p>-->
+<!--                <p>Age: ${employee.age}</p>-->
+<!--                <p>Address: ${employee.address}</p>-->
+<!--                <p>Gender: ${employee.gender}</p>-->
+<!--                <p>Birthdate: ${employee.birthdate}</p>-->
+<!--                <p>Designation:${employee.designation</p>-->
+
+<!--        </div>-->
+
+<!--        <t:actionlink t:id="showImageLink" class="link">[IMAGE]</t:actionlink>-->
+
+<!--        <t:eventlink t:id="promoteLink" class="link">[PROMOTE]</t:eventlink>-->
+
+<!--        <t:pagelink page="Login" class="close-link" anchor="top-right">[CLOSE]</t:pagelink>-->
+<!--        <div id="imagePopup" class="modal fade" tabindex="-1" role="dialog">-->
+<!--                <div class="modal-dialog" role="document">-->
+<!--                        <div class="modal-content">-->
+<!--                                <div class="modal-header">-->
+<!--                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                                                <span aria-hidden="true">&times;</span>-->
+<!--                                        </button>-->
+<!--                                        <h4 class="modal-title">Employee Image</h4>-->
+<!--                                </div>-->
+<!--                                <div class="modal-body">-->
+<!--                                        <img src="${employeeImage}" alt="Employee Image" class="img-responsive"/>-->
+<!--                                </div>-->
+<!--                                <div class="modal-footer">-->
+<!--                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+<!--                                </div>-->
+<!--                        </div>-->
+<!--                </div>-->
+<!--        </div>-->
+
+<!--</t:if>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<head>
+        <title>Employee Details</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    p {
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    a:hover {
+        background-color: #0056b3;
+    }
+
+    .link {
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    .link:hover {
+        text-decoration: none;
+    }
+
+    .close-link {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .modal-header, .modal-footer {
+        padding: 10px 15px;
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .modal-body {
+        padding: 10px;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+<body class="container">
+<div class="eg">
+        <t:companyinfo value="message"/>
+</div>
+
+<h3>${'View Details'}</h3>
+<br></br>
+
+<t:if test="employee">
+        <div class="eg">
+                <t:wishbanner employee="employee"/>
+        </div>
+
+        <div class="employee-details">
+                <p>Name: ${employee.name}</p>
+                <p>Age: ${employee.age}</p>
+                <p>Address: ${employee.address}</p>
+                <p>Gender: ${employee.gender}</p>
+                <p>Birthdate: ${employee.birthdate}</p>
+                <p>Designation: ${employee.designation}</p>
+                <p>Image: ${employee.image}</p>
+
+        </div>
+
+        <a t:id="confirmSendCampaign" t:type="jquery/DialogLink" t:dialog="noteDialog">
+                Open Dialog
+        </a>
+
+
+
+
+<!--        <t:actionlink t:id="showImageLink" class="link">[IMAGE]</t:actionlink>-->
+<!--        <t:eventlink t:id="promoteLink" class="link">[PROMOTE]</t:eventlink>-->
+<!--        <t:pagelink page="Login" class="close-link" anchor="top-right">[CLOSE]</t:pagelink>-->
+
+        <t:bolditalicdisplay t:value ="literal:${context:images/edit-text.png}" />
+</t:if>
+
+
+
+</body>
+
+<t:jquery.Dialog t:clientId="testDialog" t:zone="testZone">
+        <t:zone t:id="testZone">
+                <div>Hello</div>
+        </t:zone>
+</t:jquery.Dialog>
+
+
+
+</html>

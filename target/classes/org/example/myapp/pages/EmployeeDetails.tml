@@ -1,0 +1,71 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+  xmlns:p="tapestry:parameter">
+
+
+<style>
+   body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                margin: 0;
+                padding: 0;
+            }
+            .container {
+                width: 80%;
+                margin: 0 auto;
+                text-align: center;
+            }
+            h1 {
+                color: #333;
+            }
+            p {
+                color: #666;
+                margin-bottom: 20px;
+            }
+
+            a:hover {
+                background-color: #0056b3;
+            }
+            </style>
+
+<body class = "container">
+
+<t:pagelink page="Search">Search</t:pagelink>
+
+<div class="eg">
+    <t:companyinfo />
+</div>
+<h1>Employees Detail </h1>
+<p>Click id to view individual employee details</p>
+<div>
+</div>
+<t:if test="employees.empty">
+<p>There are no employees to display.</p>
+</t:if>
+
+<t:unless test="employees.empty">
+<t:grid source="employees" row="employee" t:add="edit">
+<p>${employee.id}</p>
+<p:idCell>
+        <t:pagelink page="EmployeeView" context="employee.id">${employee.id}</t:pagelink>
+
+
+
+
+</p:idCell>
+
+    <p:editCell>
+        <t:if t:test="admin">
+        <t:pagelink page="EditEmployee" context="employee.id">Edit</t:pagelink>
+        </t:if>
+    </p:editCell>
+
+
+</t:grid>
+</t:unless>
+
+<t:pagelink page="EmployeeAdd" class="button">Add Employee</t:pagelink>
+
+</body>
+</html>
+
+

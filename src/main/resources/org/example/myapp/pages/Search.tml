@@ -1,0 +1,11 @@
+<html xmlns:t="http:\\tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter" xmlns:j="tapestry-library:jquery">
+
+
+<t:form t:id="search">
+    <input t:type="textfield" t:value="value" />
+    <input type="submit" value="Search" />
+</t:form>
+
+
+</html>
